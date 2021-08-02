@@ -16,9 +16,9 @@
 // let photo = downloadPhoto("http//:localhost/tommy.jpg")
 // console.log(photo); //will result undefined
 
-//the above code is asynchronous, because we don't know when the function downloadPhoto will retrive the image from server and store in photo
+//the above code is asynchronous, because we don't know when the function downloadPhoto() will retrive the image from server and store in photo
 //by the time it happens , 2nd line is already executed. Hence , photo would be undefined
-//fetching from server for is an asynchronous task
+//fetching from server  is an asynchronous task
 
 const rand = () => Math.floor(Math.random() * 10 )+ 1
 
@@ -30,7 +30,7 @@ const rand = () => Math.floor(Math.random() * 10 )+ 1
 //     reject () //if the task fails
 // }
 
-//we will use this promise somewhere else in the code . if the promise succed then .then is called which takes resolv() parameter as parameter to i's callback function
+//we will use this promise somewhere else in the code . if the promise succed then .then is called which takes resolve() parameter as parameter to i's callback function
 // p1.then(function(XC)){
 
 // }
@@ -49,7 +49,7 @@ p1.then(function(y){
     console.log("X+4", x+4);
 }).catch(function(zz){ //no matter how many .then() are present there should be atleast one catch() , which is executed when reject() is called or if any of the .then() throw a error
     console.log("caught" , zz + 5);
-    //we will not log 10 b.c resolve() is called in Promise() and .then shows no error
+    //we will not log 10 b.c resolve() is called in Promise() and .then() shows no error
 })
 
 

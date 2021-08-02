@@ -3,10 +3,7 @@
 //basic fetch
 //using jsonplaceholder for the data
 //Remember that fetch returns a promise
-//HTTP status codes - http://www.restapitutorial.com/httpstatuscodes.html
-//to test with NODE we need to install the node-fetch package
-//  npm install node-fetch
-//let fetch = require('node-fetch');
+
 
 //get the details for a random user
 const root = 'http://jsonplaceholder.typicode.com';

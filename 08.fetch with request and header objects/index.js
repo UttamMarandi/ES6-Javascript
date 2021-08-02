@@ -7,7 +7,7 @@ const uri = 'http://jsonplaceholder.typicode.com/users';
 
 //REQUEST OBJECT
 //syntax / types
-//a. new Request(uri) //basically works as a simple .ftech(req).then()
+//a. new Request(uri) //basically works as a simple fetch(req).then()
 //b. new Request(uri , option) //option is a object the can take properties
 //option : method , headers , body, mode
 //method : GET , POST , PUT , DELETE , OPTIONS
@@ -35,9 +35,9 @@ const uri = 'http://jsonplaceholder.typicode.com/users';
 //new Headers()
 // headers.append(name, value)
 // -> These are the request headers that we are allowed to modify :     ->Content-Type, Content-Length, Accept, Accept-Language,
-// X-Requested-With, User-Agent
+// X-Requested-Wit(depreceated ), User-Agent
 
-//When uploading a file to the server , we use POSt or PUT method , there will be a body option in request and we can also use Content type and Content length request headers
+//When uploading a file to the server , we use POST or PUT method , there will be a body option in request and we can also use Content type and Content length request headers
 
 
 let h = new Headers()
@@ -56,6 +56,7 @@ let req = new Request(uri , {
 fetch(req)
     .then(response =>{
         if(response.ok){ //response.ok() returns a value between 200 -299 , if reponse is successful. also 304 works as 304 means no data changed
+            // I think sames as response.status === 200
             return response.json()
         }
         else{
