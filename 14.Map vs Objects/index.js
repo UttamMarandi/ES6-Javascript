@@ -2,6 +2,10 @@
 // ES6 Maps are a good replacement for Objects
 // in many circumstances but not all
 //A map is a collection of key : value pairs wrapped inside map
+//diffrence 
+//In objects the keys has to be strings or they are converted to stringd
+//In maps the keys can be any type of structure , it can be other objects , arrays , symboles , strings and numbers
+
 
 let a = {'name': 'Sherlock'};
 let b = {'name': 'Watson'};
