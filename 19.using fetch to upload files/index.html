@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>using fetch to upload files</title>
+</head>
+<body>
+    <h2>using fetch to upload files</h2>
+    <h3>check console</h3>
+
+    <h2>Testing with Postman</h2>
+    <p>https://postman-echo.com/post</p>
+    <form action="#">
+        <div>
+            <input type="hidden" id="user_id" value="75" />
+            <input type="file" id="avatar_img" accept="image/x-png" /> 
+            <!-- multiple tag to attach multiple files -->
+        </div>
+        <div>
+            <button id="btnSubmit">Upload Avatar</button>
+        </div>
+    </form>
+    <div id="output">
+        <!-- output goes here -->
+        
+    </div>
+    
+
+    <script src="./index.js"></script>
+</body>
+</html>
