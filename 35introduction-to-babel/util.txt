@@ -1,0 +1,21 @@
+Babel is a tool that converts current vesrion of js to older vesrion of js. It helps in backward compatibility
+
+1.use 
+npm init --yes 
+to install npm with default values
+2. You will see a package.json file
+3.use 
+npm install --save=dev babel-cli babel-preset-env 
+to install babel
+4. node_modules are installed
+5. in package.json file add a script to run babel
+"build" : "babel src fromFolder -d Tofolder" 
+//fromFolder contains new code , Tofolder contains code compiled be babel
+
+6.create a file .babelrc that contains settings to decide what to compile and what not to compile
+{
+    "presets": ["env"] //env represent es2015 , es2016 , es2017 and latest
+}
+
+7. to run babel use this command
+npm run build
