@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Imports and Exports</title>
+    <meta name="viewport" content="width=device-width">
+    
+</head>
+<body>
+    <header>
+        <h1>Imports and Exports</h1>
+    </header>
+    <main>
+        <pre id="output"></pre>
+    </main>    
+    <script type="module">
+        //this script should be external
+        //when not external... needs type="module"
+
+        //if we are importing external files within script tag in an html file than we have to explicitly define script type = module
+        //if it is a js file , then not required
+        
+        //any function that is imported is defined in the form
+        //import{functionName1, functionName2} from "./filename" 
+
+
+        /**************************************
+        https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/import
+        
+        import defaultExport from "module-name";
+        import * as name from "module-name";
+        import { export } from "module-name";
+        import { export as alias } from "module-name";
+        import { export1 , export2 } from "module-name";
+        import { export1 , export2 as alias2 , [...] } from "module-name";
+        import defaultExport, { export [ , [...] ] } from "module-name";
+        import defaultExport, * as name from "module-name";
+        import "module-name";
+        var promise = import(module-name);
+        *************************************/
+       import{  myFunc, myFunc2,x} from "./export.js"
+
+        console.log(myFunc2(3));
+        console.log(myFunc(4));
+        console.log("using an alias name",x(4));
+        //console.log( myFunc2(4) );
+        // console.log(honda(5));
+        //console.log( x(3) );
+    </script>
+</body>
+</html>
