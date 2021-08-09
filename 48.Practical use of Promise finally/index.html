@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Practical use of promise finally</title>
+
+    <style>
+        html {
+          font-size: 20px;
+          font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto,
+            Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+          line-height: 1.7;
+          font-weight: 100;
+        }
+        button {
+          font-family: inherit;
+          font-size: inherit;
+          font-weight: inherit;
+          background-color: cornflowerblue;
+          color: white;
+          cursor: pointer;
+          padding: 0.25rem 2rem;
+        }
+        button:disabled {
+          background-color: #999;
+          color: #eee;
+          cursor: wait;
+        }
+        /*****************************
+          Overlay and Loader anim
+        *****************************/
+        .overlay {
+          position: fixed;
+          top: 0;
+          left: 0;
+          width: 100vw;
+          height: 100vh;
+          background-color: hsla(0, 0%, 40%, 0.6);
+          display: flex;
+          justify-content: center;
+          align-items: center;
+        }
+        .overlay .loader {
+          background-color: #eee;
+          width: 30px;
+          height: 30px;
+          border-radius: 50%;
+          position: relative;
+        }
+        .overlay .loader::before,
+        .overlay .loader::after {
+          position: absolute;
+          content: ' ';
+          background-color: #ddd;
+          width: 30px;
+          height: 30px;
+          top: 0;
+          border-radius: 50%;
+          animation: 0.6s ease-in-out 0s infinite alternate both running loader;
+        }
+        .overlay .loader::before {
+          left: -60px;
+          transform-origin: 60px center;
+        }
+        .overlay .loader::after {
+          left: 60px;
+          transform-origin: -30px center;
+        }
+        @keyframes loader {
+          from {
+            transform: rotate(0deg);
+          }
+          to {
+            transform: rotate(210deg);
+          }
+        }
+      </style>
+
+</head>
+<body>
+    <h2>Practical use of promise finally</h2>
+    <h3>Check console</h3>
+
+    <main>
+        <p><button id="btnGo">Go Fetch Something</button></p>
+      </main>
+
+      <script>
+        document.addEventListener('DOMContentLoaded', () => {
+          document.getElementById('btnGo').addEventListener('click', doFetch);
+        });
+  
+        function doFetch(ev) {
+          ev.preventDefault();
+          showLoading();
+          setTimeout(() => {
+            let url = 'https://jsonplaceholder.typicode.com/posts';
+            fetch(url)
+              .then((resp) => resp.json())
+              .then(showContent)
+              .catch(fail)
+              .finally(hideLoading);//this will run regardless of either catch or then is called
+          }, 1000);
+        }
+  
+        function showLoading() {
+          document.getElementById('btnGo').disabled = true;
+          let overlay = document.createElement('div');
+          overlay.className = 'overlay';
+          let loader = document.createElement('div');
+          loader.className = 'loader';
+          overlay.appendChild(loader);
+          document.body.appendChild(overlay);
+        }
+        function hideLoading() {
+          document.getElementById('btnGo').disabled = false;
+          let overlay = document.querySelector('.overlay');
+          document.body.removeChild(overlay);
+        }
+  
+        function showContent(data) {
+          console.log('we got the content');
+          console.log(data);
+        }
+        function fail(err) {
+          console.warn('Something went wrong with the fetch');
+          console.warn(err.message);
+        }
+      </script>
+
+    <script src="./index.js"></script>
+</body>
+</html>
