@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Improve your project with Destructuring and Modules</title>
+    <link rel="stylesheet" href="./main.css" />
+</head>
+<body>
+    <h2>Improve your project with Destructuring and Modules</h2>
+    <h3>Check console</h3>
+    <h3>Write efficient scripts</h3>
+    <main>
+        <form name="sampleForm" action="#" method="POST" autocomplete="off">
+          <p>
+            <label for="email">Email</label>
+            <input
+              type="email"
+              inputmode="email"
+              id="email"
+              enterkeyhint="next"
+              placeholder=""
+              autocomplete="off"
+              required
+              aria-required="true"
+            />
+          </p>
+          <p>
+            <label for="pass">Password</label>
+            <input
+              type="password"
+              id="pass"
+              enterkeyhint="send"
+              autocomplete="off"
+              required
+              aria-required="true"
+            />
+          </p>
+          <p>
+            <label for="lang">Language</label>
+            <select id="lang" autocomplete="off">
+              <option value="en" lang="en">English</option>
+              <option value="sv" lang="sv">Svensk</option>
+              <option value="ru" lang="ru" selected>Русский</option>
+              <option value="de" lang="de">Deutsch</option>
+              <option value="es" lang="es">Español</option>
+              <option value="fr" lang="fr">Français</option>
+            </select>
+          </p>
+          <p>
+            <button id="btnSend">Send</button>
+          </p>
+        </form>
+      </main>
+
+    <script type="module" src="./index.js"></script> 
+    <!-- need to use module for imports and exports -->
+</body>
+</html>
